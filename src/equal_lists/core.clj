@@ -9,4 +9,4 @@
 
 (defn -main
   [x y & args]
-  (leq x y))
+  (println (leq (read-string x) (read-string y))))
