@@ -3,8 +3,14 @@
 
 (defn leq [x y]
   (cond
-   (and (coll? x) (coll? y)) (and (leq (first x) (first y)) (leq (next x) (next y)))
-   (and (not (coll? x)) (not (coll? y))) (= x y)
+   (and (coll? x) (coll? y)) (and
+                              (leq
+                               (first x)
+                               (first y))
+                              (leq
+                               (next x)
+                               (next y)))
+   (not (or (coll? x) (coll? y))) (= x y)
    :else false))
 
 (defn -main
